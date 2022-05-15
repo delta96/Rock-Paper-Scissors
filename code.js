@@ -17,3 +17,8 @@ function compRand(min, max) { // Will generate a random number to use in compute
     let rand = Math.floor(Math.random() * (max - min + 1) + min);
     return rand;
 }
+
+function optionConvert(answer){  // Converts user answer to lower case for comparison
+    let caseAnswer = answer.toLowerCase();
+    return caseAnswer;
+}
