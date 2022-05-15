@@ -7,22 +7,48 @@ body{
     height: 100vh;
 }
 
-.title{
+.title {
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-.choices{
+.choices {
     display: flex;
     justify-content: center;
     align-content: center;
     gap: 15px;
 }
 
-#score{
+#score {
     margin-top: 15px;
     display: flex;
     justify-content: center;
     align-content: center;
+    margin: 20px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+#playerScore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    width: 40px;
+    height: 40px;
+    
+}
+
+#compScore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    width: 40px;
+    height: 40px;
 }

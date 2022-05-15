@@ -1,3 +1,7 @@
+const buttons = document.querySelectorAll('button'); 
+let compWins = 0; // create a global variable to keep count of computer wins.
+let playerWins = 0; //create a global variable to keep count of player wins.
+
 function computerPlay() { // Will return computer's option of "Rock", "Paper", "Scissors"
     let num = compRand(1, 3);
     
@@ -22,28 +26,23 @@ function disableButtons() {
     buttons.forEach(elem => {
         elem.disabled = true
     })
-}
+} 
 
-let compWins = 0; // create a global variable to keep count of computer wins.
-let playerWins = 0; //create a global variable to keep count of player wins.
-
-function playerRock(comp){ // Will decide game outcome if Player chooses Rock
-   // let comp = computerPlay();
+function playerRock(comp){ // Will decide game outcome if Player chooses Rock and display results as well as add to scores
 
     if(comp === 'Rock'){
         let prompt = "Player: Rock | Computer: Rock || It's a tie.";
         document.getElementById('score').innerHTML = prompt;
-        console.log(compWins);
     } else if(comp === 'Paper'){
         let prompt = "Player: Rock | Computer: Paper || You Lose! Paper beats Rock.";
         compWins = ++compWins;
         document.getElementById('score').innerHTML = prompt;
-        console.log(compWins);
+        document.getElementById('compScore').innerHTML = compWins;
     } else if(comp === 'Scissors'){
         let prompt = "Player: Rock | Computer: Scissors || You Win! Rock beats Scissors.";
         playerWins = ++playerWins;
         document.getElementById('score').innerHTML = prompt;
-        console.log(compWins);
+        document.getElementById('playerScore').innerHTML = playerWins;
     }
 
 
@@ -58,19 +57,22 @@ function playerRock(comp){ // Will decide game outcome if Player chooses Rock
     }
 }
 
-function playerPaper(comp){ // Will decide game outcome if Player chooses Paper
+function playerPaper(comp){ // Will decide game outcome if Player chooses Paper and display results as well as add to scores
    // let comp = computerPlay();
 
     if(comp === 'Rock'){
         let prompt = "Player: Paper | Computer: Rock || You Win! Paper beats Rock.";
         playerWins = ++playerWins
         document.getElementById('score').innerHTML = prompt;
+        document.getElementById('playerScore').innerHTML = playerWins;
     } else if(comp === 'Paper'){
         let prompt = "Player: Paper | Computer: Paper || It's a Tie.";
         document.getElementById('score').innerHTML = prompt;
     } else if(comp === 'Scissors'){
         let prompt = "Player: Paper | Computer: Scissors || You Lose! Scissors beats Paper.";
+        compWins = ++compWins;
         document.getElementById('score').innerHTML = prompt;
+        document.getElementById('compScore').innerHTML = compWins;
     }
 
 
@@ -87,17 +89,18 @@ function playerPaper(comp){ // Will decide game outcome if Player chooses Paper
 
 }
 
-function playerScissors(comp){ // Will decide game outcome if Player chooses Scissors
-    //let comp = computerPlay();
+function playerScissors(comp){ // Will decide game outcome if Player chooses Scissors and display results as well as add to scores
 
     if(comp === 'Rock'){
         let prompt = "Player: Scissors | Computer: Rock || You Lose! Rock beats Scissors.";
         compWins = ++compWins;
         document.getElementById('score').innerHTML = prompt;
+        document.getElementById('compScore').innerHTML = compWins;
     } else if(comp === 'Paper'){
         let prompt = "Player: Scissors | Computer: Paper || You Win! Scissors beats Paper.";
         playerWins = ++playerWins;
         document.getElementById('score').innerHTML = prompt;
+        document.getElementById('playerScore').innerHTML = playerWins;
     } else if(comp === 'Scissors'){
         let prompt = "Player: Scissors | Computer: Scissors || Its a Tie.";
         document.getElementById('score').innerHTML = prompt;
@@ -115,7 +118,7 @@ function playerScissors(comp){ // Will decide game outcome if Player chooses Sci
     }
 }
 
-function playRound(player){ // Plays a round and returns outcome.
+function playRound(player){ // Takes button input and passed it to respective functions to compare to computer selection
     let computer = computerPlay();
     if(player === 'rock'){
         return playerRock(computer);
@@ -129,8 +132,8 @@ function playRound(player){ // Plays a round and returns outcome.
 }
 
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => {
+
+buttons.forEach(button => { 
     button.addEventListener('click', function(){
         playRound(button.value);
     })})
