@@ -103,7 +103,7 @@ function playerScissors(comp){ // Will decide game outcome if Player chooses Sci
         document.getElementById('score').innerHTML = prompt;
     }
 
-    
+
     if(playerWins === 5){
         disableButtons(); 
         let prompt = 'You Win!';
@@ -113,23 +113,6 @@ function playerScissors(comp){ // Will decide game outcome if Player chooses Sci
         let prompt = 'You Lose';
         document.getElementById('score').innerHTML = prompt;
     }
-}
-
-
-
-function playRound2(){ // Plays a round and returns outcome.
-    let comp = computerPlay();
-    const rock = document.querySelector('#rock');
-    const paper = document.querySelector('#paper');
-    const scissors = document.querySelector('#scissors');
-    rock.addEventListener('click', function() {playerRock(comp);});
-    paper.addEventListener('click', function() {playerPaper(comp);});
-    scissors.addEventListener('click', function() {playerScissors(comp);});
-    rock.removeEventListener('click', function() {playerRock(comp);});
-    paper.removeEventListener('click', function() {playerPaper(comp);});
-    scissors.removeEventListener('click', function() {playerScissors(comp);});
-
-
 }
 
 function playRound(player){ // Plays a round and returns outcome.
@@ -152,23 +135,6 @@ buttons.forEach(button => {
         playRound(button.value);
     })})
 
-function outcome(playerScore, compScore){
-    let score = "Player Score: " + playerScore + " || Computer Score: " + compScore;
-    
-    if(playerScore > compScore){
-        let message = "Player Wins!";
-        console.log(message);
-        console.log(score);
-    } else if(playerScore < compScore){
-        let message = "Computer Wins!";
-        console.log(message);
-        console.log(score);
-    } else {
-        let message = "The Game is a Tie.";
-        console.log(message);
-        console.log(score);
-    }
 
-}
 
 
