@@ -26,79 +26,79 @@ function optionConvert(answer){  // Converts user answer to lower case for compa
 let compWins = 0; // create a global variable to keep count of computer wins.
 let playerWins = 0; //create a global variable to keep count of player wins.
 
-
 function playerRock(comp){ // Will decide game outcome if Player chooses Rock
-    // let comp = computerPlay();
- 
-     if(comp === 'Rock'){
-         let prompt = "Player: Rock | Computer: Rock || It's a tie.";
-         return prompt;
-     } else if(comp === 'Paper'){
-         let prompt = "Player: Rock | Computer: Paper || You Lose! Paper beats Rock.";
-         compWins = ++compWins;
-         return prompt;
-     } else if(comp === 'Scissors'){
-         let prompt = "Player: Rock | Computer: Scissors || You Win! Rock beats Scissors.";
-         playerWins = ++playerWins;
-         return prompt;
-     }
- 
- }
- 
- function playerPaper(comp){ // Will decide game outcome if Player chooses Paper
-    // let comp = computerPlay();
- 
-     if(comp === 'Rock'){
-         let prompt = "Player: Paper | Computer: Rock || You Win! Paper beats Rock.";
-         playerWins = ++playerWins
-         return prompt;
-     } else if(comp === 'Paper'){
-         let prompt = "Player: Paper | Computer: Paper || It's a Tie.";
-         return prompt;
-     } else if(comp === 'Scissors'){
-         let prompt = "Player: Paper | Computer: Scissors || You Lose! Scissors beats Paper.";
-         compWins = ++compWins;
-         return prompt;
-     }
- 
- }
- 
- function playerScissors(comp){ // Will decide game outcome if Player chooses Scissors
-     //let comp = computerPlay();
- 
-     if(comp === 'Rock'){
-         let prompt = "Player: Scissors | Computer: Rock || You Lose! Rock beats Scissors.";
-         compWins = ++compWins;
-         return prompt;
-     } else if(comp === 'Paper'){
-         let prompt = "Player: Scissors | Computer: Paper || You Win! Scissors beats Paper.";
-         playerWins = ++playerWins;
-         return prompt;
-     } else if(comp === 'Scissors'){
-         let prompt = "Player: Scissors | Computer: Scissors || Its a Tie.";
-         return prompt;
-     }
- 
- }
+   // let comp = computerPlay();
 
- function playRound(player, computer){ // Plays a round and returns outcome.
-
-    if(player === 'rock'){
-        return playerRock(computer);
-    } else if(player === 'paper'){
-        return playerPaper(computer);
-    } else if(player === 'scissors'){
-        return playerScissors(computer);
-    } else {
-        let message = 'Not an option. Refresh and try again!';
-        return message;
+    if(comp === 'Rock'){
+        let prompt = "Player: Rock | Computer: Rock || It's a tie.";
+        alert(prompt);
+    } else if(comp === 'Paper'){
+        let prompt = "Player: Rock | Computer: Paper || You Lose! Paper beats Rock.";
+        compWins = ++compWins;
+        alert(prompt);
+    } else if(comp === 'Scissors'){
+        let prompt = "Player: Rock | Computer: Scissors || You Win! Rock beats Scissors.";
+        playerWins = ++playerWins;
+        alert(prompt);
     }
+
 }
+
+function playerPaper(comp){ // Will decide game outcome if Player chooses Paper
+   // let comp = computerPlay();
+
+    if(comp === 'Rock'){
+        let prompt = "Player: Paper | Computer: Rock || You Win! Paper beats Rock.";
+        playerWins = ++playerWins
+        alert(prompt);
+    } else if(comp === 'Paper'){
+        let prompt = "Player: Paper | Computer: Paper || It's a Tie.";
+        alert(prompt);
+    } else if(comp === 'Scissors'){
+        let prompt = "Player: Paper | Computer: Scissors || You Lose! Scissors beats Paper.";
+        compWins = ++compWins;
+        alert(prompt);
+    }
+
+}
+
+function playerScissors(comp){ // Will decide game outcome if Player chooses Scissors
+    //let comp = computerPlay();
+
+    if(comp === 'Rock'){
+        let prompt = "Player: Scissors | Computer: Rock || You Lose! Rock beats Scissors.";
+        compWins = ++compWins;
+        alert(prompt);
+    } else if(comp === 'Paper'){
+        let prompt = "Player: Scissors | Computer: Paper || You Win! Scissors beats Paper.";
+        playerWins = ++playerWins;
+        alert(prompt);
+    } else if(comp === 'Scissors'){
+        let prompt = "Player: Scissors | Computer: Scissors || Its a Tie.";
+        alert(prompt);
+    }
+
+}
+
+
+
+function playRound(){ // Plays a round and returns outcome.
+
+    let comp = computerPlay();
+    const rock = document.querySelector('#rock');
+    const paper = document.querySelector('#paper');
+    const scissors = document.querySelector('#scissors');
+    rock.addEventListener('click', function() {playerRock(comp);});
+    paper.addEventListener('click', function() {playerPaper(comp);});
+    scissors.addEventListener('click', function() {playerScissors(comp);});
+}
+playRound();
+
 
 function game(){ // Plays five rounds
     for(i=1; i<6; i++){
-        let option = prompt("Choose: Rock, Paper, or Scissors: "); //asks player for their option in a prompt window
-        let playerSelection = optionConvert(option);
+       
+       
         let computerSelection = computerPlay();
         let outcome = playRound(playerSelection, computerSelection);
 
@@ -107,7 +107,7 @@ function game(){ // Plays five rounds
         } else {
             i = i;
         }
-        console.log(outcome);
+        //console.log(outcome);
     }
 }
 
@@ -132,4 +132,8 @@ function outcome(playerScore, compScore){
 
 //game();
 //outcome(playerWins, compWins);
-playRound();
+ 
+
+
+
+
