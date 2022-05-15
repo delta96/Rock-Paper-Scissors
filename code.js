@@ -22,7 +22,7 @@ function compRand(min, max) { // Will generate a random number to use in compute
     return rand;
 }
 
-function disableButtons() {
+function disableButtons() { // Function to disable buttons to simulate the end of the game
     buttons.forEach(elem => {
         elem.disabled = true
     })

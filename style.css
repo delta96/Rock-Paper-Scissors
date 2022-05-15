@@ -34,21 +34,42 @@ body{
     gap: 15px;
 }
 
-#playerScore {
+#container2 {
+    margin: 15px;
     display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+#playerBox {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-style: solid;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     
 }
 
-#compScore {
+#playerScore, #compScore {
+    font-size: 28px;
+    margin: 0;
+}
+
+
+
+#compBox {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     border-style: solid;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
+}
+
+.name {
+    text-decoration: underline;
+    font-weight: bold;
 }
