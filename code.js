@@ -45,9 +45,17 @@ function playerRock(comp){ // Will decide game outcome if Player chooses Rock
         document.getElementById('score').innerHTML = prompt;
         console.log(compWins);
     }
-    if(playerWins === 5 || compWins === 5 ){
+
+
+    if(playerWins === 5){
+        disableButtons(); 
+        let prompt = 'You Win!';
+        document.getElementById('score').innerHTML = prompt;
+    } else if (compWins === 5) {
         disableButtons();
-    } else{}
+        let prompt = 'You Lose';
+        document.getElementById('score').innerHTML = prompt;
+    }
 }
 
 function playerPaper(comp){ // Will decide game outcome if Player chooses Paper
@@ -56,18 +64,25 @@ function playerPaper(comp){ // Will decide game outcome if Player chooses Paper
     if(comp === 'Rock'){
         let prompt = "Player: Paper | Computer: Rock || You Win! Paper beats Rock.";
         playerWins = ++playerWins
-        alert(prompt);
+        document.getElementById('score').innerHTML = prompt;
     } else if(comp === 'Paper'){
         let prompt = "Player: Paper | Computer: Paper || It's a Tie.";
-        alert(prompt);
+        document.getElementById('score').innerHTML = prompt;
     } else if(comp === 'Scissors'){
         let prompt = "Player: Paper | Computer: Scissors || You Lose! Scissors beats Paper.";
-        compWins = ++compWins;
-        alert(prompt);
+        document.getElementById('score').innerHTML = prompt;
     }
-    if(playerWins === 5 || compWins === 5 ){
+
+
+    if(playerWins === 5){
+        disableButtons(); 
+        let prompt = 'You Win!';
+        document.getElementById('score').innerHTML = prompt;
+    } else if (compWins === 5) {
         disableButtons();
-    } else{}
+        let prompt = 'You Lose';
+        document.getElementById('score').innerHTML = prompt;
+    }
     
 
 }
@@ -78,18 +93,26 @@ function playerScissors(comp){ // Will decide game outcome if Player chooses Sci
     if(comp === 'Rock'){
         let prompt = "Player: Scissors | Computer: Rock || You Lose! Rock beats Scissors.";
         compWins = ++compWins;
-        alert(prompt);
+        document.getElementById('score').innerHTML = prompt;
     } else if(comp === 'Paper'){
         let prompt = "Player: Scissors | Computer: Paper || You Win! Scissors beats Paper.";
         playerWins = ++playerWins;
-        alert(prompt);
+        document.getElementById('score').innerHTML = prompt;
     } else if(comp === 'Scissors'){
         let prompt = "Player: Scissors | Computer: Scissors || Its a Tie.";
-        alert(prompt);
+        document.getElementById('score').innerHTML = prompt;
     }
-    if(playerWins === 5 || compWins === 5 ){
+
+    
+    if(playerWins === 5){
+        disableButtons(); 
+        let prompt = 'You Win!';
+        document.getElementById('score').innerHTML = prompt;
+    } else if (compWins === 5) {
         disableButtons();
-    } else{}
+        let prompt = 'You Lose';
+        document.getElementById('score').innerHTML = prompt;
+    }
 }
 
 
