@@ -130,5 +130,6 @@ function outcome(playerScore, compScore){
 
 }
 
-game();
-outcome(playerWins, compWins);
+//game();
+//outcome(playerWins, compWins);
+playRound();
