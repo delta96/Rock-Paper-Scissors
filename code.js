@@ -77,3 +77,17 @@ function playerRock(comp){ // Will decide game outcome if Player chooses Rock
      }
  
  }
+
+ function playRound(player, computer){ // Plays a round and returns outcome.
+
+    if(player === 'rock'){
+        return playerRock(computer);
+    } else if(player === 'paper'){
+        return playerPaper(computer);
+    } else if(player === 'scissors'){
+        return playerScissors(computer);
+    } else {
+        let message = 'Not an option. Refresh and try again!';
+        return message;
+    }
+}
