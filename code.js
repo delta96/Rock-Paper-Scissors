@@ -18,9 +18,10 @@ function compRand(min, max) { // Will generate a random number to use in compute
     return rand;
 }
 
-function optionConvert(answer){  // Converts user answer to lower case for comparison
-    let caseAnswer = answer.toLowerCase();
-    return caseAnswer;
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
 }
 
 let compWins = 0; // create a global variable to keep count of computer wins.
@@ -31,17 +32,22 @@ function playerRock(comp){ // Will decide game outcome if Player chooses Rock
 
     if(comp === 'Rock'){
         let prompt = "Player: Rock | Computer: Rock || It's a tie.";
-        alert(prompt);
+        document.getElementById('score').innerHTML = prompt;
+        console.log(compWins);
     } else if(comp === 'Paper'){
         let prompt = "Player: Rock | Computer: Paper || You Lose! Paper beats Rock.";
         compWins = ++compWins;
-        alert(prompt);
+        document.getElementById('score').innerHTML = prompt;
+        console.log(compWins);
     } else if(comp === 'Scissors'){
         let prompt = "Player: Rock | Computer: Scissors || You Win! Rock beats Scissors.";
         playerWins = ++playerWins;
-        alert(prompt);
+        document.getElementById('score').innerHTML = prompt;
+        console.log(compWins);
     }
-
+    if(playerWins === 5 || compWins === 5 ){
+        disableButtons();
+    } else{}
 }
 
 function playerPaper(comp){ // Will decide game outcome if Player chooses Paper
@@ -59,6 +65,10 @@ function playerPaper(comp){ // Will decide game outcome if Player chooses Paper
         compWins = ++compWins;
         alert(prompt);
     }
+    if(playerWins === 5 || compWins === 5 ){
+        disableButtons();
+    } else{}
+    
 
 }
 
@@ -77,13 +87,14 @@ function playerScissors(comp){ // Will decide game outcome if Player chooses Sci
         let prompt = "Player: Scissors | Computer: Scissors || Its a Tie.";
         alert(prompt);
     }
-
+    if(playerWins === 5 || compWins === 5 ){
+        disableButtons();
+    } else{}
 }
 
 
 
-function playRound(){ // Plays a round and returns outcome.
-
+function playRound2(){ // Plays a round and returns outcome.
     let comp = computerPlay();
     const rock = document.querySelector('#rock');
     const paper = document.querySelector('#paper');
@@ -91,25 +102,32 @@ function playRound(){ // Plays a round and returns outcome.
     rock.addEventListener('click', function() {playerRock(comp);});
     paper.addEventListener('click', function() {playerPaper(comp);});
     scissors.addEventListener('click', function() {playerScissors(comp);});
+    rock.removeEventListener('click', function() {playerRock(comp);});
+    paper.removeEventListener('click', function() {playerPaper(comp);});
+    scissors.removeEventListener('click', function() {playerScissors(comp);});
+
+
 }
-playRound();
 
-
-function game(){ // Plays five rounds
-    for(i=1; i<6; i++){
-       
-       
-        let computerSelection = computerPlay();
-        let outcome = playRound(playerSelection, computerSelection);
-
-        if(outcome === 'Not an option. Refresh and try again!'){ // If user enters something other than "Rock", "Paper", or "Scissors" then that turn doesnt count towards the 5 tries.
-            i = i -1;
-        } else {
-            i = i;
-        }
-        //console.log(outcome);
-    }
+function playRound(player){ // Plays a round and returns outcome.
+    let computer = computerPlay();
+    if(player === 'rock'){
+        return playerRock(computer);
+    } else if(player === 'paper'){
+        return playerPaper(computer);
+    } else if(player === 'scissors'){
+        return playerScissors(computer);
+    } 
+    console.log(compWins);
+    
 }
+
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('click', function(){
+        playRound(button.value);
+    })})
 
 function outcome(playerScore, compScore){
     let score = "Player Score: " + playerScore + " || Computer Score: " + compScore;
@@ -129,11 +147,5 @@ function outcome(playerScore, compScore){
     }
 
 }
-
-//game();
-//outcome(playerWins, compWins);
- 
-
-
 
 
