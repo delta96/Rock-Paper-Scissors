@@ -23,6 +23,9 @@ function optionConvert(answer){  // Converts user answer to lower case for compa
     return caseAnswer;
 }
 
+let compWins = 0; // create a global variable to keep count of computer wins.
+let playerWins = 0; //create a global variable to keep count of player wins.
+
 
 function playerRock(comp){ // Will decide game outcome if Player chooses Rock
     // let comp = computerPlay();
@@ -107,3 +110,25 @@ function game(){ // Plays five rounds
         console.log(outcome);
     }
 }
+
+function outcome(playerScore, compScore){
+    let score = "Player Score: " + playerScore + " || Computer Score: " + compScore;
+    
+    if(playerScore > compScore){
+        let message = "Player Wins!";
+        console.log(message);
+        console.log(score);
+    } else if(playerScore < compScore){
+        let message = "Computer Wins!";
+        console.log(message);
+        console.log(score);
+    } else {
+        let message = "The Game is a Tie.";
+        console.log(message);
+        console.log(score);
+    }
+
+}
+
+game();
+outcome(playerWins, compWins);
