@@ -91,3 +91,19 @@ function playerRock(comp){ // Will decide game outcome if Player chooses Rock
         return message;
     }
 }
+
+function game(){ // Plays five rounds
+    for(i=1; i<6; i++){
+        let option = prompt("Choose: Rock, Paper, or Scissors: "); //asks player for their option in a prompt window
+        let playerSelection = optionConvert(option);
+        let computerSelection = computerPlay();
+        let outcome = playRound(playerSelection, computerSelection);
+
+        if(outcome === 'Not an option. Refresh and try again!'){ // If user enters something other than "Rock", "Paper", or "Scissors" then that turn doesnt count towards the 5 tries.
+            i = i -1;
+        } else {
+            i = i;
+        }
+        console.log(outcome);
+    }
+}
